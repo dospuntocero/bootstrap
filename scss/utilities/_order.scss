@@ -1,0 +1,24 @@
+//responsive order classes. this contains classes with numbers 1 to $grid-columns 
+//it also contains the classes .first, .last and .unordered for each breakpoint
+
+@each $size, $pixels in $grid-breakpoints {
+	@media (min-width: $size) {
+  	@for $i from 1 to $grid-columns {
+			.order-#{$size}-#{$i} {
+				order: $i;
+			}
+		}
+		.order-#{$size}-first {
+		  order: -1;
+		}
+		.order-#{$size}-unordered {
+		  order: 0;
+		}
+		
+		.order-#{$size}-last {
+		  order: $grid-columns;
+		}
+
+	}
+}
+
